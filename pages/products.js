@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 import {
   makeStyles, GridList, GridListTile, GridListTileBar, IconButton,
 } from '@material-ui/core';
-import InfoIcon from '@material-ui/icons/Info';
+// import InfoIcon from '@material-ui/icons/Info';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { products } from 'redux/reducers/products';
 import { dataSelector } from 'redux/selectors/products';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
+import Image from 'next/image';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,7 +45,7 @@ const Products = () => {
         </GridListTile> */}
         {productsData?.map((product) => (
           <GridListTile key={product.id}>
-            {product.images?.[0] && <img src={product.images[0]} alt="" />}
+            {product.images.length ? <img src={product.images[0]} alt="" /> : <img src="/no-image.png" alt="" />}
             <GridListTileBar
               title={product.title}
               subtitle={(
