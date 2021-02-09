@@ -1,5 +1,5 @@
 import axios from 'axios';
-import DEVELOPMENT from 'utils/constants/global';
+import { DEVELOPMENT } from 'utils/constants/global';
 import getConfig from 'next/config';
 
 const { publicRuntimeConfig: { apiHost, apiPort } } = getConfig();

@@ -14,3 +14,19 @@ a {
 * {
   box-sizing: border-box;
 }
+
+footer {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+}
+
+main {
+  height: calc(100vh - 64px - 40px);
+  position: relative;
+  top: 64px;
+}

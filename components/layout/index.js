@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Drawer from 'components/drawer';
 import Head from 'next/head';
 import Appbar from 'components/app-bar';
+import Footer from 'components/footer';
 
 const Layout = ({ children }) => (
   <>
@@ -15,17 +16,7 @@ const Layout = ({ children }) => (
       {children}
     </main>
     <Drawer />
-    <footer>
-      <a
-        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Powered by
-        {' '}
-        <img src="/vercel.svg" alt="Vercel Logo" />
-      </a>
-    </footer>
+    <Footer />
   </>
 );
 

@@ -1,11 +1,18 @@
 import React from 'react';
-import { Drawer } from '@material-ui/core';
+import {
+  Drawer,
+  List, ListItem, ListItemIcon, ListItemText,
+} from '@material-ui/core';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { openDrawerSelector } from 'redux/selectors/global';
 import { global } from 'redux/reducers/global';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import items from './items';
 
 const CustomDrawer = () => {
   const dispatch = useDispatch();
+  const router = useRouter();
   const openDrawer = useSelector(openDrawerSelector, shallowEqual);
 
   const handleDrawerClose = () => {
@@ -23,8 +30,23 @@ const CustomDrawer = () => {
         onClick={handleListClick}
         onKeyDown={handleListClick}
       />
+      <List>
+        {items.map((item) => (
+          <Link href={item.pathname} key={item.id}>
+            <ListItem
+              button
+              component="a"
+              selected={item.pathname === router.pathname}
+            >
+              <ListItemIcon>
+                {item.icon}
+              </ListItemIcon>
+              <ListItemText primary={item.title} />
+            </ListItem>
+          </Link>
+        ))}
+      </List>
     </Drawer>
-
   );
 };
 
