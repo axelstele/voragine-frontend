@@ -7,6 +7,9 @@ const logInError = createAction('user/logInError');
 const logOut = createAction('user/logOut');
 const logOutSuccess = createAction('user/logOutSuccess');
 const logOutError = createAction('user/logOutError');
+const refreshToken = createAction('user/refreshToken');
+const refreshTokenSuccess = createAction('user/refreshTokenSuccess');
+const refreshTokenError = createAction('user/refreshTokenError');
 
 export const user = {
   logIn,
@@ -15,6 +18,9 @@ export const user = {
   logOut,
   logOutSuccess,
   logOutError,
+  refreshToken,
+  refreshTokenSuccess,
+  refreshTokenError,
 };
 
 const slice = createSlice({

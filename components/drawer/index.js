@@ -19,16 +19,12 @@ const CustomDrawer = () => {
     dispatch(global.hideDrawer());
   };
 
-  const handleListClick = () => {
-    handleDrawerClose();
-  };
-
   return (
     <Drawer anchor="left" open={openDrawer} onClose={handleDrawerClose}>
       <div
         role="presentation"
-        onClick={handleListClick}
-        onKeyDown={handleListClick}
+        onClick={handleDrawerClose}
+        onKeyDown={handleDrawerClose}
       />
       <List>
         {items.map((item) => (
@@ -36,6 +32,7 @@ const CustomDrawer = () => {
             <ListItem
               button
               component="a"
+              onClick={handleDrawerClose}
               selected={item.pathname === router.pathname}
             >
               <ListItemIcon>
